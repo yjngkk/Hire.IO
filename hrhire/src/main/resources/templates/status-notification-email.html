@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification Statut Entretien</title>
+</head>
+<body>
+    <p>Bonjour,</p>
+    <p>📢 <b>NOTIFICATION :</b> <span th:text="${statusTitle}"></span></p>
+    <p><b>📅 Détails de l'entretien :</b><br>
+        - Date et heure : <b th:text="${dateTime}"></b><br>
+        - Position : <b th:text="${position}"></b><br>
+        - Statut : <b th:text="${statusMessage}"></b>
+    </p>
+    <p>Cordialement,</p>
+</body>
+</html>

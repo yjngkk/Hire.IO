@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+
+# Build outputs
+target/
+dist/
+build/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# Sensitive files from your root directory
+passwords.txt
+passwords
+tokens/
+uploads/
+*.key
+*.pem
+
+# Google OAuth secrets - IGNORE THESE
+client_secret*.json
+**/client_secret*.json
+
+# Backup files with secrets
+*.backup
+*.original
+application.properties.backup
+application.properties.original

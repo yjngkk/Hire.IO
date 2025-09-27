@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+
+  # CRM Backend Application
+  hire-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hire-backend
+    ports:
+      - "8088:8088"
+    environment:
+      # Application Configuration
+      SERVER_PORT: 8088
+
+      # Database Configuration
+      DATABASE_URL: jdbc:postgresql://38.242.152.95:5432/hireproject
+      DATABASE_USERNAME: keycloak
+      DATABASE_PASSWORD: secret
+
+      # Keycloak Configuration
+      KEYCLOAK_AUTH_SERVER_URL:  https://iam.nexotek.ma
+      KEYCLOAK_REALM: hirecraft
+      KEYCLOAK_RESOURCE: hirecraft-client
+      KEYCLOAK_CREDENTIALS_SECRET: SMRAjcT2JSg1seBfhqn7jbxjPiPU4L9B
+      KEYCLOAK_ISSUER_URI:  https://iam.nexotek.ma/realms/hirecraft
+      KEYCLOAK_JWK_SET_URI:  https://iam.nexotek.ma/realms/hirecraft/protocol/openid-connect/certs
+    networks:
+      - keycloak-network
+
+  hire-frontend:
+    build:
+      context: ../../hire-front/hr-front
+      dockerfile: Dockerfile
+    container_name: hire-frontend
+    ports:
+      - "3030:3030"
+    depends_on:
+      - hire-backend
+    networks:
+      - keycloak-network
+
+
+networks:
+  keycloak-network:
+    external: true

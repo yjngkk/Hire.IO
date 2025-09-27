@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Entretien RH - Intervieweur</title>
+</head>
+<body>
+    <p>Bonjour,</p>
+    <p>Vous avez un entretien programmé pour le poste de <b th:text="${position}"></b>.</p>
+    <p><b>📅 Détails de l'entretien :</b><br>
+        - Date et heure : <b th:text="${dateTime}"></b><br>
+        - Candidat : <b th:text="${candidateName}"></b> (<span th:text="${candidateEmail}"></span>)<br>
+        - Position : <b th:text="${position}"></b>
+    </p>
+    <p>🔗 <b>Lien Google Meet pour rejoindre l'entretien :</b><br>
+        <a th:href="${meetLink}" th:text="${meetLink}"></a>
+    </p>
+    <p>⏰ Veuillez vous connecter 5 minutes avant l'heure prévue.</p>
+    <p>Cordialement,</p>
+</body>
+</html>
